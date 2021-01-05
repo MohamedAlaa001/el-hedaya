@@ -1,0 +1,103 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css">
+  <title>البحث</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+</head>
+
+<body>
+  <nav class="navbar bg-dark">
+    <h1>
+      <a href="index.html">الهداية</a>
+    </h1>
+    <ul>
+      <li><a href="manage.html">الإدارة</a></li>
+      <li><a class="active" href="search.html">بحث</a></li>
+      <li><a href="register.html">إضافة</a></li>
+      <li><a href="courses.html">الدورات</a></li>
+    </ul>
+  </nav>
+  <section class="landing">
+    <div class="dark-overlay">
+      <div class="container">
+        <form class="form right">
+          <div class="form-group">
+            <p class="lead">الأسم</p>
+            <input type="text" placeholder="...الأسم" autocomplete="off" name="name" required />
+          </div>
+          <div class="row">
+            <div class="from-group col-3">
+              <p class="lead">السن من</p>
+              <input type="text" class="col-3" autocomplete="off" placeholder="من" name="age-from" id="age" />
+            </div>
+            <div class="from-group col-3">
+              <p class="lead">السن إلي</p>
+              <input type="text" class="col-3" autocomplete="off" placeholder="إلي" name="age-to" id="age" />
+            </div>
+          </div>
+          <input type="submit" class="btn btn-primary left" value="بحث" />
+        </form>
+        <div class="right mt-4" id="results">
+          <div class="results-list">
+            <p class="lead results-name"><span>(طالب)</span> الأسم: محمد أحمد علاء
+            </p>
+            <div class="panel mx">
+              <i class="far fa-edit lead left"></i>
+              <p class="small">22 :السن</p>
+              <p class="small">Lorem ipsum dolor sit amet :العنوان</p>
+              <p class="small">0123456789 :الهاتف</p>
+              <p class="small">:الحفظ</p>
+            </div>
+          </div>
+          <div class="results-list">
+            <p class="lead results-name"><span>(طالب)</span> الأسم: أنور عادل رزق</p>
+            <div class="panel mx">
+              <i class="far fa-edit lead left"></i>
+              <p class="small">22 :السن</p>
+              <p class="small">Lorem ipsum, dolor sit amet consectetur adipisicing :العنوان</p>
+              <p class="small">0123456789 :الهاتف</p>
+              <p class="small">:الحفظ</p>
+              <p class="small">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quam iure numquam
+                similique. Voluptatem, necessitatibus eos ad earum provident quam blanditiis saepe optio, eligendi dolor
+                autem non, unde modi? Sit?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // function showPanel(obj) {
+    //   var panel = obj.nextElementSibling;
+    //   if (panel.style.display == 'block') {
+    //     panel.style.display = 'none'
+    //     obj.style.borderBottom = "none"
+    //   } else {
+    //     panel.style.display = 'block'
+    //     obj.style.borderBottom = "1px solid #fff"
+    //   }
+    // }
+    var list = document.getElementsByClassName("results-name");
+
+    for (var i = 0; i < list.length; i++) {
+      list[i].addEventListener("click", function () {
+        this.classList.toggle("arrow");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+          this.style.borderBottom = "0px solid transparent"
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          this.style.borderBottom = "1px solid #fff"
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

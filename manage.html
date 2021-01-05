@@ -1,0 +1,113 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الإدارة</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+</head>
+
+<body>
+  <nav class="navbar bg-dark">
+    <h1>
+      <a href="index.html">الهداية</a>
+    </h1>
+    <ul>
+      <li><a class="active" href="manage.html">الإدارة</a></li>
+      <li><a href="search.html">بحث</a></li>
+      <li><a href="register.html">إضافة</a></li>
+      <li><a href="courses.html">الدورات</a></li>
+    </ul>
+  </nav>
+  <section class="landing">
+    <div class="dark-overlay">
+      <div class="container">
+        <div class="row wrapper">
+          <div class="sign-up">
+            <p class="large">التسجيل</p>
+            <form class="form right">
+              <div class="form-group">
+                <p class="lead">الأسم ثلاثي</p>
+                <input type="text" placeholder="الأسم ثلاثي" autocomplete="off" name="name">
+              </div>
+              <div class="form-group">
+                <p class="lead">اسم المستخدم</p>
+                <input type="text" placeholder="اسم المستخدم" autocomplete="off" name="userName">
+              </div>
+              <div class="form-group">
+                <p class="lead">كلمة السر</p>
+                <input type="text" placeholder="كلمة السر" autocomplete="off" name="userPassword">
+              </div>
+              <input type="submit" class="btn btn-primary left" value="تسجيل">
+            </form>
+          </div>
+          <div class="members">
+            <p class="large">الأعضاء</p>
+            <div class="members-list right lead">
+              <span class="members-icon">
+                <i class="fas fa-trash"></i><i class="far fa-edit" onclick="modify(this)"></i>
+              </span>
+              <p>محمد علاء</p>
+            </div>
+            <div class="members-list right lead">
+              <span class="members-icon">
+                <i class="fas fa-trash"></i><i class="far fa-edit" onclick="modify(this)"></i>
+              </span>
+              <p>أنور عادل</p>
+            </div>
+            <div class="members-list right lead">
+              <span class="members-icon">
+                <i class="fas fa-trash"></i><i class="far fa-edit" onclick="modify(this)"></i>
+              </span>
+              <p>طارق محمد</p>
+            </div>
+          </div>
+        </div>
+        <div id="modify">
+          <form class="form right">
+            <div class="form-group ">
+              <p class="lead">الأسم</p>
+              <input type="text" placeholder="...الأسم" autocomplete="off" name="name" />
+            </div>
+            <div class="row">
+              <div class="form-group col-4">
+                <p class="lead">سنة الميلاد</p>
+                <input type="text" placeholder="...سنة الميلاد" autocomplete="off" name="birthdate">
+              </div>
+              <div class="form-group col-4">
+                <p class="lead">الهاتف</p>
+                <input type="text" placeholder="...الهاتف" autocomplete="off" name="phone">
+              </div>
+              <div class="form-group col-4">
+                <p class="lead">الرقم القومي</p>
+                <input type="text" placeholder="...الرقم القومي" autocomplete="off" name="ssn">
+              </div>
+            </div>
+            <div class="form-group">
+              <p class="lead">العنوان</p>
+              <input type="text" placeholder="...العنوان" autocomplete="off" name="address">
+            </div>
+            <input type="button" class="btn btn-primary left mr" value="إلغاء" onclick="cancel()" />
+            <input type="submit" class="btn btn-primary left " value="تعديل" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function modify(obj) {
+      console.log(obj.parentNode.nextElementSibling.innerHTML)
+      var name = obj.parentNode.nextElementSibling.innerHTML
+      document.getElementById('modify').style.display = 'block'
+
+    }
+    function cancel() {
+      document.getElementById('modify').style.display = 'none'
+    }
+  </script>
+</body>
+
+</html>

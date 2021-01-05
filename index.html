@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css">
+  <title>الهداية</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="landing">
+    <div class="dark-overlay">
+      <div class="landing-inner">
+        <p class="x-large my-4">الهداية</p>
+        <div class="content">
+          <form class="form">
+            <div class="form-group">
+              <label class="lead">اسم المستخدم</label>
+              <input type="text" name="userName" id="" autocomplete="off" placeholder="اسم المستخدم" />
+            </div>
+            <div class="form-group">
+              <p class="lead">كلمة السر</p>
+              <input type="password" name="userPassword" id="" autocomplete="off" placeholder="كلمة السر" />
+            </div>
+            <input type="submit" class="btn btn-primary left" value="تسجيل" onclick="onSubmit(event)" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function onSubmit(e) {
+      e.preventDefault();
+      console.log(e)
+    }
+  </script>
+</body>
+
+</html>

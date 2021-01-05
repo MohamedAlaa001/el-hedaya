@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الدورات</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+</head>
+
+<body>
+  <nav class="navbar bg-dark">
+    <h1>
+      <a href="index.html">الهداية</a>
+    </h1>
+    <ul>
+      <li><a href="manage.html">الإدارة</a></li>
+      <li><a href="search.html">بحث</a></li>
+      <li><a href="register.html">إضافة</a></li>
+      <li><a class="active" href="courses.html">الدورات</a></li>
+    </ul>
+  </nav>
+  <section class="landing">
+    <div class="dark-overlay">
+      <div class="container">
+        <div class="courses-header">
+          <p class="large">الدورات</p>
+          <div class="searchBox">
+            <input type="text" class="searchInput" placeholder="...بحث" id='search-bar'>
+            <span class="searchButton hide-sm">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+        </div>
+        <div class="right" id="courses">
+          <div class="courses-list">
+            <p class="lead courses-name">التاسعة</p>
+            <div class="panel mx">
+              <!-- Place teacher name inside the span -->
+              <p class="small">المعلم: <span>طارق محمد</span></p>
+              <p class="small">اليوم: <span>الخميس</span></p>
+              <p class="small">الساعة: <span>الرابعة</span></p>
+              <p class="small students">عدد الطلاب: <span>13</span></p>
+              <div class="panel mx">
+                <p>طارق </p>
+                <p>طارق </p>
+                <p>طارق </p>
+                <p>طارق </p>
+              </div>
+            </div>
+          </div>
+          <div class="courses-list">
+            <p class="lead courses-name">الرابعة</p>
+            <div class="panel mx">
+              <!-- Place teacher name inside the span -->
+              <p class="small">المعلم: <span>محمد علاء</span></p>
+              <p class="small">اليوم: <span>الاأربعاء</span></p>
+              <p class="small">الساعة: <span>الثامنة</span></p>
+              <p class="small students">عدد الطلاب: <span>8</span></p>
+              <div class="panel mx">
+                <p>أنور </p>
+                <p>أنور </p>
+                <p>أنور </p>
+                <p>أنور </p>
+                <p>أنور </p>
+                <p>أنور </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var courses_list = document.getElementsByClassName("courses-name");
+    var students_list = document.getElementsByClassName("students");
+
+    for (var i = 0; i < courses_list.length; i++) {
+      courses_list[i].addEventListener("click", function () {
+        this.classList.toggle("arrow");
+        var course_panel = this.nextElementSibling;
+        if (course_panel.style.maxHeight) {
+          course_panel.style.maxHeight = null;
+          this.style.borderBottom = "0px solid transparent"
+        } else {
+          course_panel.style.maxHeight = course_panel.scrollHeight + 'px';
+          this.style.borderBottom = "1px solid #fff"
+        }
+      });
+    }
+
+    for (var i = 0; i < students_list.length; i++) {
+      students_list[i].addEventListener("click", function () {
+        this.classList.toggle("arrow-right");
+        var student_panel = this.nextElementSibling;
+        var parent_panel = student_panel.parentNode;
+        if (student_panel.style.maxHeight) {
+          student_panel.style.maxHeight = null;
+          this.style.borderBottom = "0px solid transparent"
+        } else {
+          student_panel.style.maxHeight = student_panel.scrollHeight + 'px';
+          parent_panel.style.maxHeight = parent_panel.scrollHeight + student_panel.scrollHeight + 'px';
+          this.style.borderBottom = "1px solid #fff"
+        }
+      });
+    }
+    var sample = [
+      {
+        course_name: 'التاسعة'
+      },
+      {
+        course_name: 'الرابعة'
+      }
+    ]
+    // Search function
+    var searchbar = document.getElementById('search-bar');
+    searchbar.addEventListener('keyup', (e) => {
+      const searchstring = e.target.value;
+      var newsample = sample.filter((el) => {
+        return (el.course_name.includes(searchstring));
+      })
+      // Set render function
+      console.log(newsample);
+
+
+    });
+
+  </script>
+</body>
+
+</html>
